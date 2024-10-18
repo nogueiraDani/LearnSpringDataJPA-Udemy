@@ -29,7 +29,7 @@ public class Medico implements Serializable {
 
     //especialidade como FK
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @JoinColumn(name = "id_especialidade")
+    @JoinColumn(name = "id_especialidade", nullable = false)
     private Especialidade especialidade;
 
     public Especialidade getEspecialidade() {
@@ -42,7 +42,7 @@ public class Medico implements Serializable {
 
 
     //nome
-    @Column(name = "nome", length = 50)
+    @Column(name = "nome", length = 50, nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String nome;
 
@@ -56,7 +56,7 @@ public class Medico implements Serializable {
 
 
     //sobrenome
-    @Column(name = "sobrenome", length = 100)
+    @Column(name = "sobrenome", length = 100, nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String sobrenome;
 
@@ -103,7 +103,7 @@ public class Medico implements Serializable {
 
     public Medico(Long crm, Especialidade especialidade, String nome, String sobrenome, String telefone, String email) {
         this.crm = crm;
-       // this.especialidade = especialidade;
+        this.especialidade = especialidade;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.telefone = telefone;
