@@ -13,7 +13,7 @@ public class EspecialidadeDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional(readOnly = false)
+    @Transactional
     public void save (Especialidade especialidade){
         this.entityManager.persist(especialidade);
     }
@@ -24,13 +24,27 @@ public class EspecialidadeDao {
     }
 
     @Transactional
+    public String updateById (Especialidade especialidade){
+        String query = """
+                UPDATE Especialidade e
+                SET e.descricao = :novoNome
+                WHERE e.id_especialidade = :id
+                """;
+        this.entityManager.createQuery(query)
+                .setParameter("novoNome", especialidade.getDescricao())
+                .setParameter("id", especialidade.getId_especialidade())
+                .executeUpdate();
+        return "Especialidade atualizada";
+    }
+
+    @Transactional
     public void delete (Long id){
         this.entityManager.remove(this.entityManager.getReference(Especialidade.class, id));
     }
 
     @Transactional
     public List<Especialidade> findAll(){
-        String query = "select especialidade from Especialidade especialidade";
+        String query = "SELECT e FROM Especialidade e";
         return this.entityManager.createQuery(query, Especialidade.class).getResultList();
     }
 
@@ -40,10 +54,10 @@ public class EspecialidadeDao {
     }
 
     @Transactional(readOnly = true)
-    public Especialidade findByDescricao (String descricao) {
+    public List<Especialidade> findByDescricao (String descricao) {
         String query = """
-                select e from Especialidade e where e.descricao like :descricao
+                SELECT e FROM Especialidade e WHERE e.descricao LIKE :descricao
                 """;
-        return this.entityManager.createQuery(query, Especialidade.class).setParameter("descricao",descricao).getSingleResult();
+        return this.entityManager.createQuery(query, Especialidade.class).setParameter("descricao",descricao).getResultList();
     }
 }

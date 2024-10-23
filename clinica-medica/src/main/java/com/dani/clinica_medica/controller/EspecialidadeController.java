@@ -28,14 +28,22 @@ public class EspecialidadeController {
         return especialidade;
     }
 
+    @PutMapping("{id}")
+    public String atualizarEspecialidadeById(@PathVariable Long id, @RequestBody Especialidade especialidade) {
+        especialidade.setId_especialidade(id);
+        return especialidadeDao.updateById(especialidade);
+    }
+
     @DeleteMapping("{id}")
     public String deletarEspecialidade(@PathVariable Long id) {
-        especialidadeDao.delete(id);
         try {
+            especialidadeDao.delete(id);
             return "Especialiade id: " + id + " deletado com sucesso";
+        } catch (DataIntegrityViolationException e) {
+            return "Especialidade vinculada com cadastro de médico, não é " +
+                    "possível deletar.";
         } catch (Exception e) {
-            // parei aqui, mostra o erro no postman mas não cai aqui no catch
-            return "Especialidade vinculada com cadastro de médico, não é " + "possivel deletar";
+            return "Especialidade vinculada com cadastro de médico, não é possivel deletar";
         }
     }
 
@@ -45,7 +53,7 @@ public class EspecialidadeController {
     }
 
     @GetMapping("{descricao}")
-    public Especialidade buscarPelaDescricao(@PathVariable String descricao) {
+    public List<Especialidade> buscarPelaDescricao(@PathVariable String descricao) {
         return especialidadeDao.findByDescricao(descricao);
     }
 }
