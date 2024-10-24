@@ -8,20 +8,59 @@ Projeto de uma API RESTful para uma clinica médica, afim de fixar estudos sobre
 
 ## Documentação da API
 
+
+
+#### Cadastrar especialidade
+
+```http
+  POST /especialidades
+```
+
+| Parâmetro           | Tipo     | Descrição                                                |
+|:--------------------|:---------|:---------------------------------------------------------|
+| `nomeEspecialidade` | `String` | **Obrigatório**.  nome da especialidade                  |
+
+
+
+#### Buscar especialiade por descrição
+
+```http
+  GET /especialidades/{nome}
+```
+
+
+#### Atualizar especialiade por id
+
+```http
+  PUT /especialidades/{id}
+```
+| Parâmetro           | Tipo     | Descrição                                                |
+|:--------------------|:---------|:---------------------------------------------------------|
+| `nomeEspecialidade` | `String` | **Obrigatório**.  nome da especialidade                  |
+
+
+#### Deletar especialiade por id
+
+```http
+  DELETE /especialidades/{id}
+```
+
+
+---
+
 #### Cadastrar médico
 
 ```http
   POST /medicos
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `crm` | `int` | **Obrigatório**. A chave da sua API |
-| `nome` | `String` | **Obrigatório**. Nome do médico |
-| `sobrenome` | `String` | **Obrigatório**. Sobrenome do médico |
-| `telefone` | `String` | Telefone do médico|
-| `email` | `String` | Email do médico |
-| `especialidade/descricao` | `String` | **Obrigatório**. Descricao da especialidade do médico |
-
+| Parâmetro         | Tipo     | Descrição                                                |
+|:------------------|:---------|:---------------------------------------------------------|
+| `crm`             | `int`    | **Obrigatório**.  Chave primaria                         |
+| `especialidadeId` | `Long`   | **Obrigatório**. Chave estrangeira - id da especialidade |
+| `nome`            | `String` | **Obrigatório**. Nome do médico                          |
+| `sobrenome`       | `String` | **Obrigatório**. Sobrenome do médico                     |
+| `telefone`        | `String` | Telefone do médico                                       |
+| `email`           | `String` | Email do médico                                          |
 
 
