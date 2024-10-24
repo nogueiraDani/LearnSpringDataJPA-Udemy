@@ -1,4 +1,4 @@
-package com.dani.clinica_medica.dao;
+package com.dani.clinica_medica.DAO;
 
 import com.dani.clinica_medica.entity.Especialidade;
 import jakarta.persistence.*;
@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public class EspecialidadeDao {
+public class EspecialidadeDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -27,11 +27,11 @@ public class EspecialidadeDao {
     public String updateById (Especialidade especialidade){
         String query = """
                 UPDATE Especialidade e
-                SET e.descricao = :novoNome
+                SET e.nome_especialidade = :novoNome
                 WHERE e.id_especialidade = :id
                 """;
         this.entityManager.createQuery(query)
-                .setParameter("novoNome", especialidade.getDescricao())
+                .setParameter("novoNome", especialidade.getNomeEspecialidade())
                 .setParameter("id", especialidade.getId_especialidade())
                 .executeUpdate();
         return "Especialidade atualizada";
@@ -54,10 +54,10 @@ public class EspecialidadeDao {
     }
 
     @Transactional(readOnly = true)
-    public List<Especialidade> findByDescricao (String descricao) {
+    public List<Especialidade> findByNomeEspecialidade(String nomeEspecialidedade) {
         String query = """
-                SELECT e FROM Especialidade e WHERE e.descricao LIKE :descricao
+                SELECT e FROM Especialidade e WHERE e.nomeEspecialidedade LIKE :nomeEspecialidedade
                 """;
-        return this.entityManager.createQuery(query, Especialidade.class).setParameter("descricao",descricao).getResultList();
+        return this.entityManager.createQuery(query, Especialidade.class).setParameter("nomeEspecialidedade",nomeEspecialidedade).getResultList();
     }
 }

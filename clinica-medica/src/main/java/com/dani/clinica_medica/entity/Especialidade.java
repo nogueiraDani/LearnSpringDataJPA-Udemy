@@ -11,12 +11,18 @@ import java.util.Objects;
 @Table(name = "especialidades")
 public class Especialidade implements Serializable {
 
-    //id
+    //id_especialidade
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_especialidade")
     @JdbcTypeCode(SqlTypes.INTEGER)
     private Long id_especialidade;
+
+    //nomeEspecialidade
+    @Column(name = "descricao", nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String nomeEspecialidade;
+
 
     public Long getId_especialidade() {
         return id_especialidade;
@@ -27,17 +33,12 @@ public class Especialidade implements Serializable {
     }
 
 
-    //descricao
-    @Column(name = "descricao", nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String descricao;
-
-    public String getDescricao() {
-        return descricao;
+    public String getNomeEspecialidade() {
+        return nomeEspecialidade;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNomeEspecialidade(String nomeEspecialidade) {
+        this.nomeEspecialidade = nomeEspecialidade;
     }
 
 
@@ -47,7 +48,7 @@ public class Especialidade implements Serializable {
 
     public Especialidade(Long id, String descricao) {
         this.id_especialidade = id;
-        this.descricao = descricao;
+        this.nomeEspecialidade = descricao;
     }
 
     //equals e hashcode
@@ -67,6 +68,6 @@ public class Especialidade implements Serializable {
     //toString
     @Override
     public String toString() {
-        return "Especialidade{" + "id=" + id_especialidade + ", descricao='" + descricao + '\'' + '}';
+        return "Especialidade{" + "id=" + id_especialidade + ", descricao='" + nomeEspecialidade + '\'' + '}';
     }
 }

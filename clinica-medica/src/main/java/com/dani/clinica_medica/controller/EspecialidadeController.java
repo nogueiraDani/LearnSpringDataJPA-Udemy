@@ -1,7 +1,7 @@
 package com.dani.clinica_medica.controller;
 
 
-import com.dani.clinica_medica.dao.EspecialidadeDao;
+import com.dani.clinica_medica.DAO.EspecialidadeDAO;
 import com.dani.clinica_medica.entity.Especialidade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class EspecialidadeController {
 
     @Autowired
-    private EspecialidadeDao especialidadeDao;
+    private EspecialidadeDAO especialidadeDao;
 
     @PostMapping
     public Especialidade salvarEspecialidade(@RequestBody Especialidade especialidade) {
@@ -52,8 +52,8 @@ public class EspecialidadeController {
         return especialidadeDao.findAll();
     }
 
-    @GetMapping("{descricao}")
-    public List<Especialidade> buscarPelaDescricao(@PathVariable String descricao) {
-        return especialidadeDao.findByDescricao(descricao);
+    @GetMapping("{nomeEspecialidade}")
+    public List<Especialidade> buscarPelaDescricao(@PathVariable String nomeEspecialidade) {
+        return especialidadeDao.findByNomeEspecialidade(nomeEspecialidade);
     }
 }
