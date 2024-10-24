@@ -18,6 +18,33 @@ public class Medico implements Serializable {
     @JdbcTypeCode(SqlTypes.INTEGER)
     private Long crm;
 
+    //especialidade como FK
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_especialidade", nullable = false)
+    private Especialidade especialidade;
+
+    //nome
+    @Column(name = "nome", length = 50, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String nome;
+
+    //sobrenome
+    @Column(name = "sobrenome", length = 100, nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String sobrenome;
+
+    //telefone
+    @Column(name = "telefone", length = 16)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String telefone;
+
+    //email
+    @Column(name = "email")
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String email;
+
+
+    //getters e setters
     public Long getCrm() {
         return crm;
     }
@@ -26,11 +53,6 @@ public class Medico implements Serializable {
         this.crm = crm;
     }
 
-
-    //especialidade como FK
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @JoinColumn(name = "id_especialidade", nullable = false)
-    private Especialidade especialidade;
 
     public Especialidade getEspecialidade() {
         return especialidade;
@@ -41,11 +63,6 @@ public class Medico implements Serializable {
     }
 
 
-    //nome
-    @Column(name = "nome", length = 50, nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String nome;
-
     public String getNome() {
         return nome;
     }
@@ -54,11 +71,6 @@ public class Medico implements Serializable {
         this.nome = nome;
     }
 
-
-    //sobrenome
-    @Column(name = "sobrenome", length = 100, nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String sobrenome;
 
     public String getSobrenome() {
         return sobrenome;
@@ -69,11 +81,6 @@ public class Medico implements Serializable {
     }
 
 
-    //telefone
-    @Column(name = "telefone", length = 16)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String telefone;
-
     public String getTelefone() {
         return telefone;
     }
@@ -82,11 +89,6 @@ public class Medico implements Serializable {
         this.telefone = telefone;
     }
 
-
-    //email
-    @Column(name = "email")
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private String email;
 
     public String getEmail() {
         return email;
@@ -101,14 +103,15 @@ public class Medico implements Serializable {
     public Medico() {
     }
 
-    public Medico(Long crm, Especialidade especialidade, String nome, String sobrenome, String telefone, String email) {
+    public Medico(Long crm, String nome, String sobrenome, String telefone, String email, Especialidade especialidade) {
         this.crm = crm;
-        this.especialidade = especialidade;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.telefone = telefone;
         this.email = email;
+        this.especialidade = especialidade;
     }
+
 
     //equals e hashcode
     @Override
@@ -124,10 +127,10 @@ public class Medico implements Serializable {
         return Objects.hashCode(crm);
     }
 
-    //toString
 
+    //toString
     @Override
     public String toString() {
-        return "Medico{" + "crm=" + crm + ", especialidade=" + especialidade + ", nome='" + nome + '\'' + ", sobrenome='" + sobrenome + '\'' + ", telefone='" + telefone + '\'' + ", email='" + email + '\'' + '}';
+        return "Medico{" + "crm=" + crm + ", nome='" + nome + '\'' + ", sobrenome='" + sobrenome + '\'' + ", telefone='" + telefone + '\'' + ", email='" + email + ", especialidade=" + especialidade + '\'' + '}';
     }
 }

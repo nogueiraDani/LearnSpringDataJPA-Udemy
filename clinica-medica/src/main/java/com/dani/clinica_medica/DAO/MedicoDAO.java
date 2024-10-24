@@ -1,4 +1,4 @@
-package com.dani.clinica_medica.dao;
+package com.dani.clinica_medica.DAO;
 
 import com.dani.clinica_medica.entity.Medico;
 import jakarta.persistence.EntityManager;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class MedicoDao {
+public class MedicoDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
