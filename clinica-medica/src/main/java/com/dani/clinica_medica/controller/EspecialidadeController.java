@@ -30,7 +30,7 @@ public class EspecialidadeController {
 
     @PutMapping("{id}")
     public String atualizarEspecialidadeById(@PathVariable Long id, @RequestBody Especialidade especialidade) {
-        especialidade.setId_especialidade(id);
+        especialidade.setIdEspecialidade(id);
         return especialidadeDao.updateById(especialidade);
     }
 
@@ -52,8 +52,13 @@ public class EspecialidadeController {
         return especialidadeDao.findAll();
     }
 
-    @GetMapping("{nomeEspecialidade}")
-    public List<Especialidade> buscarPelaDescricao(@PathVariable String nomeEspecialidade) {
-        return especialidadeDao.findByNomeEspecialidade(nomeEspecialidade);
+    @GetMapping("/{id}")
+    public Especialidade buscarPeloId(@PathVariable Long id) {
+        return especialidadeDao.findById(id);
+    }
+
+    @GetMapping("/nome/{nome}")
+    public List<Especialidade> buscarPeloNome(@PathVariable String nome) {
+        return especialidadeDao.findByNomeEspecialidade(nome);
     }
 }

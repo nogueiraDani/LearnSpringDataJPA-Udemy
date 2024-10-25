@@ -16,20 +16,20 @@ public class Especialidade implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_especialidade")
     @JdbcTypeCode(SqlTypes.INTEGER)
-    private Long id_especialidade;
+    private Long idEspecialidade;
 
     //nomeEspecialidade
-    @Column(name = "descricao", nullable = false)
+    @Column(name = "nome_especialidade", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private String nomeEspecialidade;
 
 
-    public Long getId_especialidade() {
-        return id_especialidade;
+    public Long getIdEspecialidade() {
+        return idEspecialidade;
     }
 
-    public void setId_especialidade(Long id_especialidade) {
-        this.id_especialidade = id_especialidade;
+    public void setIdEspecialidade(Long idEspecialidade) {
+        this.idEspecialidade = idEspecialidade;
     }
 
 
@@ -46,9 +46,9 @@ public class Especialidade implements Serializable {
     public Especialidade(){
     }
 
-    public Especialidade(Long id, String descricao) {
-        this.id_especialidade = id;
-        this.nomeEspecialidade = descricao;
+    public Especialidade(Long id, String nomeEspecialidade) {
+        this.idEspecialidade = id;
+        this.nomeEspecialidade = nomeEspecialidade;
     }
 
     //equals e hashcode
@@ -57,17 +57,19 @@ public class Especialidade implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Especialidade that = (Especialidade) o;
-        return Objects.equals(id_especialidade, that.id_especialidade);
+        return Objects.equals(idEspecialidade, that.idEspecialidade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id_especialidade);
+        return Objects.hashCode(idEspecialidade);
     }
 
     //toString
     @Override
     public String toString() {
-        return "Especialidade{" + "id=" + id_especialidade + ", descricao='" + nomeEspecialidade + '\'' + '}';
+        return "Especialidade{" + "id=" + idEspecialidade + ", " +
+                "nomeEspecialidade" +
+                "='" + nomeEspecialidade + '\'' + '}';
     }
 }

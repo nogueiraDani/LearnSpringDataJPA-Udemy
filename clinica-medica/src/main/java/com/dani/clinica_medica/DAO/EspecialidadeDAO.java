@@ -27,12 +27,12 @@ public class EspecialidadeDAO {
     public String updateById (Especialidade especialidade){
         String query = """
                 UPDATE Especialidade e
-                SET e.nome_especialidade = :novoNome
-                WHERE e.id_especialidade = :id
+                SET e.nomeEspecialidade = :novoNome
+                WHERE e.idEspecialidade = :id
                 """;
         this.entityManager.createQuery(query)
                 .setParameter("novoNome", especialidade.getNomeEspecialidade())
-                .setParameter("id", especialidade.getId_especialidade())
+                .setParameter("id", especialidade.getIdEspecialidade())
                 .executeUpdate();
         return "Especialidade atualizada";
     }
@@ -56,8 +56,8 @@ public class EspecialidadeDAO {
     @Transactional(readOnly = true)
     public List<Especialidade> findByNomeEspecialidade(String nomeEspecialidedade) {
         String query = """
-                SELECT e FROM Especialidade e WHERE e.nomeEspecialidedade LIKE :nomeEspecialidedade
+                SELECT e FROM Especialidade e WHERE e.nomeEspecialidade LIKE :nomeEspecialidade
                 """;
-        return this.entityManager.createQuery(query, Especialidade.class).setParameter("nomeEspecialidedade",nomeEspecialidedade).getResultList();
+        return this.entityManager.createQuery(query, Especialidade.class).setParameter("nomeEspecialidade",nomeEspecialidedade).getResultList();
     }
 }
