@@ -25,9 +25,15 @@ Projeto de uma API RESTful para uma clinica médica, afim de fixar estudos sobre
 #### Buscar especialiade por descrição
 
 ```http
-  GET /especialidades/{nome}
+  GET /especialidades/nome/{nome}
 ```
 
+
+#### Buscar especialiade por id
+
+```http
+  GET /especialidades/{id}
+```
 
 #### Atualizar especialiade por id
 
