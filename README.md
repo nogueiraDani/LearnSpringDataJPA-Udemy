@@ -1,9 +1,26 @@
 
-# Repositório de estudos SpringData JPA
+# Estudos de Spring Data JPA com Spring Boot
 
-Aqui estão anotações, exemplos e projetos sobre SpringDataJPA. 
+Repositório criado para documentar e consolidar meus estudos do curso "Formação Spring Data JPA com Spring Boot" da Udemy. Este projeto explora conceitos fundamentais e avançados do Spring Data JPA, integrados ao Spring Boot, com foco em boas práticas e aplicação em projetos reais.
 
-## Apêndice
+### Recursos e Conteúdo:
+
+* Configuração e integração de Spring Boot com Spring Data JPA.
+* Criação de repositórios e consultas personalizadas usando métodos derivados e JPQL.
+* Mapeamento de entidades e relacionamentos em bancos de dados relacionais.
+* Uso de banco de dados H2, MySQL, PostgreSQL e ferramentas como Flyway para versionamento de esquemas.
+* Implementação de operações CRUD e otimização de consultas.
+* Aplicação prática de técnicas como paginação, ordenação e transações.
+
+### Objetivo:
+
+Este projeto demonstra minha compreensão do Spring Data JPA e como aplicá-lo para gerenciar persistência de dados em aplicações Java. É também um repositório de aprendizado, com exemplos práticos que podem ser reutilizados e expandidos.
+
+### Contribuições:
+
+Feedback e sugestões são bem-vindos!
+
+# Apêndice
 
 [Revisao SpringJPA](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/demo-spring-revisao-jpa)
 
