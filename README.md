@@ -30,5 +30,5 @@ Feedback e sugestões são bem-vindos!
 
 [Refatorando a revisao para utilizar QueryMethods](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/demo-spring-repo-jpa/src)
 
-[Exercicios QueryMethods]()
+[Exercicios QueryMethods](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/tarefas-jpa-v2-testes/src)
 
