@@ -32,3 +32,5 @@ Feedback e sugestões são bem-vindos!
 
 [Exercicios QueryMethods](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/tarefas-jpa-v2-testes/src)
 
+[Adicionando novos recursos com Query By Example](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/commit/2c0667b12dc0ebc73f084b57da1fa12525d7dfd7)
+
