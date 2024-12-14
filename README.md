@@ -38,5 +38,5 @@ Feedback e sugestões são bem-vindos!
 
 [Adicionando novos recursos com Query Keywords](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/commit/5cade67b7a0182c26e54066f579a3b7be57a5e66)
 
-[Exercicios Query Keywords]()
+[Exercicios Query Keywords](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/tarefas-jpa-v4-testes)
 
