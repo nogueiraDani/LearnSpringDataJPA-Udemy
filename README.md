@@ -41,3 +41,5 @@ Feedback e sugestões são bem-vindos!
 [Exercicios Query Keywords](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/tarefas-jpa-v4-testes)
 
 [Adicionando paginação com Page e Pageable](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/commit/294ff193f27094f01b52497575eff44e29d03c1f)
+
+[Adicionando novo recurso usando Specification Pattern](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/commit/df0eee3ec0b88aca2a72432350f4a4ca30eb94ca)
