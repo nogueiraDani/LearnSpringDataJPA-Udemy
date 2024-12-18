@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Jun 15 15:32:02 BRT 2024
+datasource-config-1.2.jar>=
+datasource-config-1.2.pom>=
