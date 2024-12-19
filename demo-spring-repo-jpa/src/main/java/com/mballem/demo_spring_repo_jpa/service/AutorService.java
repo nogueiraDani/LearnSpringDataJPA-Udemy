@@ -31,7 +31,12 @@ public class AutorService {
     @Transactional(readOnly = false)
     public void update(Autor autor) {
         //this.manager.merge(autor);
-        this.repository.save(autor);
+        Autor persistAutor = findById(autor.getId());
+        persistAutor.setNome(autor.getNome());
+        persistAutor.setSobrenome(autor.getSobrenome());
+        //this.repository.save(autor); --> nao precisa mais dessa instrução
+        // pq já esta em estado persistente pq estamos com set nome e set
+        // sobrenome
     }
 
     @Transactional(readOnly = false)
