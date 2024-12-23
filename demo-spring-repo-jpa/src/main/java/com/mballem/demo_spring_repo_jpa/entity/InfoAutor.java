@@ -1,10 +1,14 @@
 package com.mballem.demo_spring_repo_jpa.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "INFO_AUTORES")
 public class InfoAutor implements Serializable {
@@ -18,30 +22,6 @@ public class InfoAutor implements Serializable {
 
     @Column(name = "bio", length = 255, nullable = true)
     private String bio;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
 
     @Override
     public boolean equals(Object o) {
