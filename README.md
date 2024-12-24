@@ -8,7 +8,7 @@ Repositório criado para documentar e consolidar meus estudos do curso "Formaç�
 * Configuração e integração de Spring Boot com Spring Data JPA.
 * Criação de repositórios e consultas personalizadas usando métodos derivados e JPQL.
 * Mapeamento de entidades e relacionamentos em bancos de dados relacionais.
-* Uso de banco de dados H2, MySQL, PostgreSQL e ferramentas como Flyway para versionamento de esquemas.
+* Uso de banco de dados H2, MySQL e PostgreSQL
 * Implementação de operações CRUD e otimização de consultas.
 * Aplicação prática de técnicas como paginação, ordenação e transações.
 
