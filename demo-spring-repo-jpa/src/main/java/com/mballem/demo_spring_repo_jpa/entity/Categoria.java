@@ -1,10 +1,14 @@
 package com.mballem.demo_spring_repo_jpa.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "CATEGORIAS")
 public class Categoria implements Serializable {
@@ -17,23 +21,6 @@ public class Categoria implements Serializable {
     @Column(name = "titulo", length = 45, nullable = false, unique = true)
     private String titulo;
 
-
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Override
     public boolean equals(Object o) {

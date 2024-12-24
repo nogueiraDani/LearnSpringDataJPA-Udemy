@@ -45,13 +45,44 @@ public class EnderecoController {
 
     @GetMapping("autor/nome/{nome}/sobrenome/{sobrenome}")
     public Endereco getByAutorNomeAndAutorSobrenome(@PathVariable String nome,
-                                                         @PathVariable String sobrenome) {
+                                                    @PathVariable String sobrenome) {
         return this.enderecoService.findByNomeAndSobrenome(nome, sobrenome);
     }
 
     @GetMapping("autores/total-posts")
-    public List<Endereco> getByAutoresTotalDePostsPorCidade (@RequestParam long total, @RequestParam List<String> cidades) {
+    public List<Endereco> getByAutoresTotalDePostsPorCidade(@RequestParam long total,
+                                                            @RequestParam List<String> cidades) {
         return this.enderecoService.findByAutorTotalPostsAndCidades(total,
                 cidades);
+    }
+
+    @PutMapping("{id}/novo-endereco")
+    public String updateEndereco(@PathVariable Long id,
+                                 @RequestParam String bairro,
+                                 @RequestParam String logradouro,
+                                 @RequestParam int numero) {
+        return this.enderecoService.updateEndereco(id, bairro, logradouro,
+                numero) == 1 ? "Endereco " + "atualizado " + "com " + "sucesso" : "Endereco nao atualizado";
+    }
+
+    @GetMapping("uf/{uf}")
+    private List<Endereco> getEnderecosByUf(@PathVariable String uf) {
+        return this.enderecoService.findByUf(uf);
+    }
+
+    @PutMapping("{id}/novo-numero")
+    private String updateNumero(@PathVariable Long id,
+                                @RequestParam int numero) {
+        return this.enderecoService.updateEnrderecoNumero(id, numero);
+    }
+
+    @GetMapping("{id}/endereco-completo")
+    private String getEnderecoCompleto(@PathVariable Long id) {
+        return this.enderecoService.getEnderecoCompleto(id);
+    }
+
+    @GetMapping("autor/{id}")
+    private Endereco getEnderecoByAutorId(@PathVariable Long id) {
+        return this.enderecoService.getEnderecoByAutorId(id);
     }
 }

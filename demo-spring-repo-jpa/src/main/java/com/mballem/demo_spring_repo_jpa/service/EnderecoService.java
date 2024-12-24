@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -75,9 +74,38 @@ public class EnderecoService {
     public List<Endereco> findByAutorTotalPostsAndCidades(long total,
                                                           List<String> cidades) {
         Specification<Endereco> enderecoSpecification = Specification.where(
-                EnderecoSpecifications.inCidades(cidades).and(EnderecoSpecifications.byGreaterThanEqualToPosts(total))
-        );
+                EnderecoSpecifications.inCidades(cidades)
+                                      .and(EnderecoSpecifications.byGreaterThanEqualToPosts(
+                                              total)));
         return this.enderecoRepository.findAll(enderecoSpecification);
     }
 
+    @Transactional
+    public int updateEndereco(Long id,
+                              String bairro,
+                              String logradouro,
+                              int numero) {
+        return this.enderecoRepository.updateByBairroAndLogradouroAndNumero(id,
+                bairro, logradouro, numero);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Endereco> findByUf(String uf) {
+        return this.enderecoRepository.findEnderecosByUf(uf);
+    }
+
+    @Transactional
+    public String updateEnrderecoNumero(Long id, int numero) {
+        return this.enderecoRepository.updateNumeroEndereco(id, numero);
+    }
+
+    @Transactional
+    public String getEnderecoCompleto(Long id) {
+        return this.enderecoRepository.getEnderecoCompletoById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public Endereco getEnderecoByAutorId(Long autorId) {
+        return this.enderecoRepository.buscarEnderecoPorAutorId(autorId);
+    }
 }
