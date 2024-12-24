@@ -47,3 +47,5 @@ Feedback e sugestões são bem-vindos!
 [Exercicios Specification Pattern](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/tree/main/tarefas-jpa-v5-testes)
 
 [Adicionando auditoria na tabela Autor](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/commit/85dc55214ca02f09f311b75017095dbeefdb93cf)
+
+[Adicionando recursos avançados](https://github.com/nogueiraDani/LearnSpringDataJPA-Udemy/pull/2/commits/f8ea58089d787dff6e7a8efe1d09c722a383d3f6)
