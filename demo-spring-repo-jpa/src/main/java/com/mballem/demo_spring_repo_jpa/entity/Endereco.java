@@ -12,6 +12,8 @@ import java.util.Objects;
 @ToString(of = "id")
 @Entity
 @Table(name = "ENDERECOS")
+@NamedQuery(name = "Endereco.buscarEnderecoPorAutorId", query = "select e " +
+        "from Endereco e where e.autor.id = ?1")
 public class Endereco implements Serializable {
 
     @Id
